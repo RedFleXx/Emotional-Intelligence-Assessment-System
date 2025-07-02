@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="icon" href="./img/fb-tab.png" type="image/x-icon">
+    <link rel="stylesheet" href="./test.css">
+    <title>FeelBright - E.I Test</title>
+</head>
+<body>
+  <div class="nav-div">
+        <nav>
+        <div class="nav-cont">
+            <div class="logo-banner">
+                <a href="index.html"> <img href="#" src="./img/fb-banner.png" > </a>
+            </div>
+        
+            <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+        </div>
+        </nav>
+</div>
+
+<!--EI TEST-->
+
+<div class="container">
+    
+    <div id="questionnaire">
+      <!-- Questions will be inserted -->
+    </div>
+     
+    <div class="finish-button">
+    <button class="btn-q" onclick="showSummary()">Submit</button>
+    <button class="btn-q" onclick="clearResponses()">Reset</button>
+    </div>
+  </div>
+
+   <div class="modal" id="summaryModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">Close</button>
+      <div id="summary"></div>
+    </div>
+  </div>
+
+  <!--FOOTER-->
+<footer class="footer">
+    <div class="footer-section">
+        <div class="footer-container">
+            <div id="foot-1" class="footer-box">
+                <h1 id="ca">Contact Us</h1>
+                <p id="sub-ca"><i class="fas fa-envelope"></i> &nbsp; feelbright@info.com</p>
+                <p id="sub-ca"><i class="fas fa-phone-alt"></i> &nbsp; 0123 - 456 - 789</p>
+            </div>
+            <div id="fb-foot-id" class="footer-box">
+                <img class="fb-foot" src="./img/footer.png" >
+                <div class="foot-icon">
+                <i id="soc-icon" class="fab fa-facebook"></i>
+                <i id="soc-icon" class="fab fa-facebook-messenger"></i>
+                <i id="soc-icon" class="fab fa-instagram"></i>
+                </div>
+            </div>
+            <div id="about" class="footer-box">
+                <h1 id="ca">Learn More</h1>
+                <a id="abt" href="#">About Us</a><br><br>
+                <a id="abt" href="#">Explore</a>
+                
+            </div>
+            <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+         FeelBright
+        </p>
+      </div>
+    </div>
+    </div>    
+</footer>
+
+     <script>
+    const uniqueQuestions = [
+      "I am aware of my emotions as I experience them.",
+      "I find it easy to recognize how others are feeling even without them saying anything.",
+      "I remain calm and composed during stressful situations.",
+      "I find it challenging to manage my impulses when upset.",
+      "I am open to feedback, even when it is critical.",
+      "I take responsibility for my actions and their impact on others.",
+      "I can shift my mood to match the emotional needs of a situation.",
+      "I try to resolve conflicts calmly and respectfully.",
+      "I often reflect on my interactions to understand what went well and what I could improve.",
+      "I motivate myself to pursue goals even when I feel discouraged.",
+      "I enjoy helping others work through their emotions.",
+      "I can recognize my emotional triggers.",
+      "I strive to understand others' perspectives.",
+      "I maintain control when provoked.",
+      "I value emotional honesty in relationships.",
+      "I am confident in expressing my feelings.",
+      "I can identify my emotional needs.",
+      "I adjust well to emotional changes in situations.",
+      "I am patient when resolving misunderstandings.",
+      "I express gratitude regularly.",
+      "I remain focused despite emotional distractions.",
+      "I check in with others to see how they are feeling.",
+      "I accept responsibility when my emotions affect others negatively.",
+      "I seek to improve my emotional responses.",
+      "I consider how my words may impact others emotionally.",
+      "I am calm under pressure.",
+      "I regularly self-reflect on emotional decisions.",
+      "I strive to maintain emotional balance.",
+      "I show empathy in conversations.",
+      "I avoid reacting defensively.",
+      "I am proactive in improving emotional health.",
+      "I encourage emotional expression in my environment.",
+      "I understand how past experiences shape my emotions.",
+      "I value feedback to grow emotionally.",
+      "I use emotions to make better decisions.",
+      "I handle emotionally intense situations maturely.",
+      "I regulate my mood throughout the day.",
+      "I forgive others to move on emotionally.",
+      "I communicate clearly even when emotional."
+    ];
+
+    const questions = uniqueQuestions.slice(0, 40);
+  const reverseScored = [3, 13, 25, 29];
+
+  const questionnaire = document.getElementById("questionnaire");
+  const progressBar = document.getElementById("progressBar");
+  const summaryModal = document.getElementById("summaryModal");
+  const summary = document.getElementById("summary");
+
+  questions.forEach((question, i) => {
+    const div = document.createElement("div");
+    div.classList.add("question");
+    div.id = `question_${i}`;
+    div.innerHTML = `<h3>${question}</h3>
+      <div class="likert">
+        ${[1,2,3,4,5,6,7].map(n => `
+          <input type="radio" id="q${i}_${n}" name="q${i}" value="${n}" onclick="handleAnswer(${i}, ${n})">
+          <label class="scale-${n}" for="q${i}_${n}"></label>
+        `).join('')}
+      </div>`;
+    questionnaire.appendChild(div);
+  });
+
+  function updateProgress() {
+    const total = questions.length;
+    const answered = document.querySelectorAll("input[type='radio']:checked").length;
+    const percent = Math.round((answered / total) * 100);
+    progressBar.style.width = percent + "%";
+  }
+
+  function handleAnswer(index, value) {
+    saveAnswer(index, value);
+    updateProgress();
+    setTimeout(() => scrollToNextUnanswered(index), 150); // small delay for scroll accuracy
+  }
+
+  function scrollToNextUnanswered(currentIndex) {
+    const answered = Array.from({ length: questions.length }, (_, i) => {
+      return document.querySelector(`input[name='q${i}']:checked`) !== null;
+    });
+
+    const totalAnswered = answered.filter(Boolean).length;
+
+    if (totalAnswered > 0 && totalAnswered % 4 === 0) {
+      for (let i = currentIndex + 1; i < questions.length; i++) {
+        if (!answered[i]) {
+          const nextElem = document.getElementById(`question_${i}`);
+          if (nextElem) {
+            window.scrollTo({
+              top: nextElem.getBoundingClientRect().top + window.pageYOffset - 165,
+              behavior: 'smooth'
+            });
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  function saveAnswer(index, value) {
+    localStorage.setItem(`question_${index}`, value);
+  }
+
+  function loadSavedAnswers() {
+    for (let i = 0; i < questions.length; i++) {
+      const saved = localStorage.getItem(`question_${i}`);
+      if (saved) {
+        const input = document.getElementById(`q${i}_${saved}`);
+        if (input) input.checked = true;
+      }
+    }
+    updateProgress();
+  }
+
+  function clearResponses() {
+  for (let i = 0; i < questions.length; i++) {
+    localStorage.removeItem(`question_${i}`);
+  }
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Wait until scroll actually reaches the top
+  const checkScrollTop = () => {
+    if (window.scrollY === 0) {
+      clearInterval(scrollCheck);
+      location.reload();
+    }
+  };
+
+  const scrollCheck = setInterval(checkScrollTop, 20);
+}
+
+
+  function showSummary() {
+    const answers = [];
+    let score = 0;
+
+    for (let i = 0; i < questions.length; i++) {
+      const selected = document.querySelector(`input[name='q${i}']:checked`);
+      let val = selected ? parseInt(selected.value) : 0;
+      if (reverseScored.includes(i) && val !== 0) val = 8 - val;
+      score += val;
+      answers.push({
+        question: questions[i],
+        answer: selected ? selected.value : "No answer"
+      });
+    }
+
+    const maxScore = questions.length * 7;
+    const percentage = (score / maxScore) * 100;
+    let category = "";
+    if (percentage >= 85) category = "High Emotional Intelligence";
+    else if (percentage >= 60) category = "Moderate Emotional Intelligence";
+    else category = "Needs Improvement";
+
+    let summaryHTML = `<h3>Your Score: ${score}/${maxScore} (${category})</h3><ul>`;
+    answers.forEach((a, i) => {
+      summaryHTML += `<li><strong>Q${i + 1}:</strong> ${a.question}<br><em>Answer:</em> ${a.answer}</li><br>`;
+    });
+    summaryHTML += `</ul>`;
+
+    summary.innerHTML = summaryHTML;
+    summaryModal.style.display = "flex";
+  }
+
+  function closeModal() {
+    summaryModal.style.display = "none";
+  }
+
+  loadSavedAnswers();
+</script>
+</body>
+</html>

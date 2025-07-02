@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="icon" href="./img/fb-tab.png" type="image/x-icon">
+    <link rel="stylesheet" href="./reg.css">
+    <title>Create Account</title>
+</head>
+    <body>
+
+    <!--NAVBAR SECTION-->
+        <nav>
+        <div class="nav-cont">
+            <div class="logo-banner">
+                <a href="index.html"> <img href="#" src="./img/fb banner.png" > </a>
+            </div>
+        
+             <div class="lgn-btn">
+                <a href="index.html" id="logb" class="logex"> Home</a>
+                <a href="about.html" id="logb1" class="logex"> Explore</a>
+            </div>
+        </div>
+        </nav>
+
+
+       <!--SIGNUP CONTENT-->
+<div class="gb2">
+  <div class="green-background"></div>
+  <div class="login-display">
+    <div class="login-container">
+      <div class="lgn-img">
+        <img class="img-lgn" src="./img/lgn-img.png" alt="Login Image" />
+      </div>
+
+      <div class="lgn-row2">
+        <!-- Begin Form -->
+        <form class="input2" action="/signup" method="POST">
+          <h3 class="input-h3" draggable="true">Enter email:</h3>
+          <input class="input3" type="email" name="email" placeholder="Enter email" required />
+
+          <h3 class="input-h3" draggable="true">Create password:</h3>
+          <input class="input3" type="password" name="password" placeholder="Create password" required />
+
+          <h3 class="input-h3" draggable="true">Re-type password</h3>
+          <input class="input3" type="password" name="confirm_password" placeholder="Re-type password" required />
+
+          <div class="signup">
+            <button class="signup-btn" type="submit">Sign up</button>
+          </div>
+
+          <div class="new-user">
+            <span id="alr">
+              <a href="login.html" draggable="true">Already have an account?</a>
+            </span>
+          </div>
+        </form>
+        <!-- End Form -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    </body>
+</html>

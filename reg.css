@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: "League-Spartan", sans-serif;
+    
+}
+body{
+    overflow-y: hidden;
+    overflow-X: hidden;
+    background-color:#FEFEFA;
+
+}
+
+/* nav-bar section */
+nav {
+    background-color: #fff;
+    padding: 2rem;
+    box-shadow: 0 0.625rem 0.625rem rgb(128, 128, 128, 0.4);  
+}
+.nav-cont{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   gap: 80vh;
+}
+.logo-banner {
+    width: 250px;
+    position: relative;
+
+}
+.logo-banner img {
+    max-width: 24vh;
+}
+
+.lgn-btn {  
+    display: flex;
+    gap: 1rem;
+    width: 260px;
+    position: relative; 
+}
+.logex {
+    font-size: 2.2vh;
+    color: white;
+    font-weight: bolder;
+    border: #9dcd5a;
+    border-radius: 4vh;
+    background-color: #5e9918;
+    text-decoration: none;
+    transition: 0.2s;
+}
+#logb {
+    padding: 1vw 1.8vw;
+    background-color: aliceblue;
+    color: #5e9918;
+    border: solid #5e9918;
+    transition: 0.2s;
+}
+#logb1 {
+    padding: 1vw 2.4vw;
+    background-color: #5e9918;
+    color: white;
+    border: solid #5e9918;
+    transition: 0.2s;
+}
+#logb1:hover {
+    background-color: #7E84BD;
+    color: white;
+    border: solid #7E84BD;
+    padding: 1vw 2.8vw;
+}
+#logb:hover {
+    background-color: #5e9918;
+    color: white;
+    border: solid #5e9918;
+    
+}
+/* END */
+
+
+
+
+
+
+/* LOGIN SECTION*/
+.login-display{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    height: 84.7vh;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.login-container{
+    background-color: beige;
+    padding: 8vh;
+    display: flex;
+    border-radius: 10px;
+    gap: 2rem;
+    box-shadow: 0 0.625rem 0.625rem rgb(128, 128, 128, 0.6);  
+    height: 70vh;
+}
+.lgn-row{
+  position: relative;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.lgn-wel{
+
+font-size: 2.1vh;
+padding: 0.2rem;
+}
+.lgn-img{
+    width: 60vh;
+
+}
+.img-lgn{
+    width: 60vh;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    position: relative;
+    top: 2rem;
+}
+.input1{
+    width: 45vh;
+    outline: none;
+    font-size: 2.1vh;
+    padding: 0.8rem;
+    border-radius: 7px;
+    border: solid 1px gray;
+}
+.input1:focus{
+     border: 1px solid #5e9918;
+}
+
+
+
+.login-button{
+    position: relative;
+    top: 1rem;
+}
+.login-btn{
+    background-color: #5e9918;
+    font-size: 2vh;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding: 1.5vh 4.5vh;
+    border-radius: 1.5rem;
+    transition: 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.forgot-btn{
+    font-weight: bold;
+    font-size: 2vh;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    color: dimgray;
+    transition: 0.2s;
+}
+.login-btn:hover{
+    background-color:#7E84BD;
+}
+.forgot-btn:hover{
+    color: #5e9918;
+}
+.new-user{
+    position:relative;
+    top: 1.5rem;
+    padding: 1vh;
+    font-size: 2vh;
+   
+}
+span a{
+    color: #5e9918;
+    text-decoration: none;
+    transition: 0.2s;
+    
+}
+span a:hover{
+    color: #7E84BD;
+}
+.green-background{
+    height: 30vh;
+    width: 100%;
+    background-color: #9dcd5a;;
+    position: absolute;
+    bottom: -0.3rem;
+
+
+}
+
+
+.gb2{
+
+    height: 85vh;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* SIGN UP SECTION */
+
+
+.input2{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    position: relative;
+    
+}
+.input3{
+    width: 45vh;
+    outline: none;
+    font-size: 2.1vh;
+    padding: 0.8rem;
+    border-radius: 7px;
+    border: solid 1px gray;
+}
+.input3:focus{
+     border: 1px solid #5e9918;
+}
+
+.input-h3{
+    position: relative;
+    top: 1.5vh;
+    font-size: 2.1vh;
+    color: dimgrey;
+}
+#alr{
+    font-weight: bold;
+    position:relative;
+    top: -2vh;
+    padding: 1vh;
+    font-size: 2vh;
+}
+.lgn-row2{
+  display: flex;
+  flex-direction: column;
+}
+
+.signup{
+    position: relative;
+    top: 1rem;
+}
+.signup-btn{
+    background-color: #5e9918;
+    font-size: 2vh;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding: 1.5vh 4.5vh;
+    border-radius: 1.5rem;
+    transition: 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.signup-btn:hover{
+    background-color:#7E84BD;
+}
