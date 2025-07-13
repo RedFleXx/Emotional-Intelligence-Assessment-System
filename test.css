@@ -148,15 +148,7 @@ nav {
       margin-top: 0;
       text-align: center;
     }
-    .close-btn {
-      background: #ff5252;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      float: right;
-      border-radius: 5px;
-    }
+
 
 .finish-button button {
       padding: 0.8rem 1.5rem;
@@ -267,11 +259,348 @@ nav {
     color: #9dcd5a;
 }
 
+
+/* SUMMARY MODAL REWORK */
+#summaryModal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+  padding: 2vh;
+}
+
+#summaryModal .modal-content {
+  font-family: 'League Spartan', sans-serif;
+  width: 100%;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  overflow-y: auto;
+  max-height: 95vh;
+  position: relative;
+}
+
+#summaryModal h3 {
+  font-size: 4vh;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* User Info */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-profile .avatar {
+width: 12vh;
+height: 12vh;
+  border-radius: 50%;
+  border: 4px solid #528614;
+}
+
+.user-meta {
+  text-align: left;
+}
+
+.user-meta h2 {
+  margin: 0;
+  font-size: 2.5vh;
+  color: #222;
+}
+
+.user-meta p {
+  font-size: 2.2vh;
+  margin: 0.3rem 0;
+}
+
+/* Result Bar */
+.result-bar {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.result-bar-title {
+  font-weight: 700;
+  font-size: 2.2vh;
+  margin-bottom: 0.5rem;
+}
+
+.result-bar-track {
+  background-color: #e0e0e0;
+  height: 2.7vh;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.result-bar-fill {
+  height: 100%;
+  border-radius: 30px;
+  position: relative;
+  transition: width 0.6s ease-in-out;
+}
+
+.result-bar-fill::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 2px solid #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(50%, -50%);
+  right: 0;
+}
+
+.result-bar-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2vh;
+  margin-top: 0.5rem;
+  color: #555;
+}
+
+/* Answer List */
+.answers-list h4 {
+  text-align: center;
+  font-size: 2.4vh;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.answers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+
+.answer-item {
+  background: #f9f9f9;
+  padding: 2vh;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  font-size: 2vh;
+  line-height: 1.4;
+  border-left: 4px solid #66bb6a;
+  
+}
+
+.answer-item strong {
+  color: #333;
+}
+
+.answer-item .your-answer {
+  display: block;
+  color: #528614;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+/* Buttons */
+.action-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.action-buttons .btn {
+  background: #528614;
+  color: white;
+  padding: 1rem 2.5rem;
+  font-size: 2vh;
+  border: none;
+  border-radius: 2vh;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.action-buttons .btn:hover {
+  background: #9370DB
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1.8vh;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #ddd;
+}
+
+
+/*LOAD OVERLAY */
+#loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-box {
+  text-align: center;
+  font-family: "League-Spartan", sans-serif;
+  padding: 12vh;
+  border-radius: 2vh;
+
+}
+
+#loadingMessage {
+  font-size: 2.4vh;
+  margin-bottom: 1.5vh;
+  font-weight: bold;
+  color: #444;
+}
+.list-bar strong,em{
+  color: #528614;
+  font-weight: bold;
+}
+
+.loading-bar {
+  width: 300px;
+  height: 16px;
+  background-color: #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1vh auto;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#loadingProgress {
+  height: 100%;
+  width: 0%;
+  background-color: #528614;
+  transition: width 0.1s linear;
+}
+
+#loadingPercent {
+  font-size: 2vh;
+  margin-top: 1vh;
+  color: #333;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 10vh;
+  right: 5vh;
+  padding: 2vh 3vh;
+  font-size: 1.6rem;
+  background-color: #5e9918;
+  color: white;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.loading-gif{
+  width: 50vh;
+  position: relative;
+  bottom: 2vh;
+  left: 2vh;
+}
+.gif-load{
+  width: 50vh;
+}
+
+
 /* For small devices (phones) */
 @media (max-width: 600px) {
 
+
  #questionnaire{
         font-size: 1.8vh;
+    }
+      .user-profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+ .loading-gif,
+    .gif-load {
+        width: 90%;
+        left: 2vh;
+        bottom: 1vh;
+    }
+  .user-meta {
+    text-align: center;
+  }
+
+.nav-cont {
+
+        gap: 2vh;
+        top: 0;
+        height: 10vh;
+    }
+
+    .logo-banner {
+        left: 0;
+        bottom: 0;
+        margin-bottom: 1.5vh;
+        width: auto;
+        top: 1vh;
+    }
+
+    .logo-banner img {
+        max-width: 40vw;
+
+    }
+
+    .progress-container {
+        width: 100%;
+        right: 0;
+        margin: 1rem auto 2rem auto;
+        position: relative;
+       top: 1vh;
+     
     }
 
 .footer-container {
@@ -279,7 +608,10 @@ nav {
         align-items: center;
         text-align: center;
         height: 40rem;
+    }
 
+      #backToTop{
+         display: none;
     }
     .footer-info{
         bottom: 1.5vh;
@@ -308,6 +640,261 @@ nav {
     }
 
 
+    /*SUMAMRY */
+
+    .answers-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .answer-item {
+    font-size: 1.9vh;
+    padding: 2vh 2vh;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-buttons .btn {
+    width: 80%;
+    font-size: 2.1vh;
+    padding: 1rem;
+    border-radius: 1.5vh;
+  }
+  }
+
+  /* TABLETS/IPADS */
+@media (min-width: 768px) and (max-width: 1024px) {
 
 
-}
+ #questionnaire{
+        font-size: 1.8vh;
+    }
+      .user-profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+ .loading-gif,
+    .gif-load {
+        width: 90%;
+        left: 2vh;
+        bottom: 1vh;
+    }
+  .user-meta {
+    text-align: center;
+  }
+
+.nav-cont {
+
+        gap: 2vh;
+        top: 0;
+        height: 10vh;
+    }
+
+    .logo-banner {
+        left: 0;
+        bottom: 0;
+        margin-bottom: 1.5vh;
+        width: auto;
+        top: 1vh;
+    }
+
+    .logo-banner img {
+        max-width: 40vw;
+
+    }
+
+    .progress-container {
+        width: 100%;
+        right: 0;
+        margin: 1rem auto 2rem auto;
+        position: relative;
+       top: 1vh;
+     
+    }
+
+.footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 40rem;
+    }
+
+      #backToTop{
+         display: none;
+    }
+    .footer-info{
+        bottom: 1.5vh;
+        font-size: 2vh;
+    }
+    .foot-icon{
+        position: relative;
+        left: 0.6rem;
+    }
+    .footer-box {
+        max-width: 90vw;
+        height: 1vh;
+    }
+   
+    #fb-foot-id{
+        position: relative;
+        left: 0.6rem;
+    }
+    #fab{
+        font-size: 4vh;
+        padding-top:1.5rem ;
+    }
+   
+    #soc-icon {
+        font-size: 3vh;
+    }
+
+
+    /*SUMAMRY */
+
+    .answers-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .answer-item {
+    font-size: 1.9vh;
+    padding: 2vh 2vh;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-buttons .btn {
+    width: 80%;
+    font-size: 2.1vh;
+    padding: 1rem;
+    border-radius: 1.5vh;
+  }
+  }
+
+
+  /* Medium Smart Phone */
+@media (min-width: 601px) and (max-width: 767px) {
+
+
+ #questionnaire{
+        font-size: 1.8vh;
+    }
+      .user-profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+ .loading-gif,
+    .gif-load {
+        width: 90%;
+        left: 2vh;
+        bottom: 1vh;
+    }
+  .user-meta {
+    text-align: center;
+  }
+
+.nav-cont {
+
+        gap: 2vh;
+        top: 0;
+        height: 10vh;
+    }
+
+    .logo-banner {
+        left: 0;
+        bottom: 0;
+        margin-bottom: 1.5vh;
+        width: auto;
+        top: 1vh;
+    }
+
+    .logo-banner img {
+        max-width: 40vw;
+
+    }
+
+    .progress-container {
+        width: 100%;
+        right: 0;
+        margin: 1rem auto 2rem auto;
+        position: relative;
+       top: 1vh;
+     
+    }
+
+.footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 40rem;
+    }
+
+      #backToTop{
+         display: none;
+    }
+    .footer-info{
+        bottom: 1.5vh;
+        font-size: 2vh;
+    }
+    .foot-icon{
+        position: relative;
+        left: 0.6rem;
+    }
+    .footer-box {
+        max-width: 90vw;
+        height: 1vh;
+    }
+   
+    #fb-foot-id{
+        position: relative;
+        left: 0.6rem;
+    }
+    #fab{
+        font-size: 4vh;
+        padding-top:1.5rem ;
+    }
+   
+    #soc-icon {
+        font-size: 3vh;
+    }
+
+
+    /*SUMAMRY */
+
+    .answers-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .answer-item {
+    font-size: 1.9vh;
+    padding: 2vh 2vh;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-buttons .btn {
+    width: 80%;
+    font-size: 2.1vh;
+    padding: 1rem;
+    border-radius: 1.5vh;
+  }
+  }
+
+
+
+

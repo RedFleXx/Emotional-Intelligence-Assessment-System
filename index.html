@@ -20,20 +20,26 @@
             <div class="logo-banner">
                 <a href="./index.html"> <img href="#" src="./img/fb-banner.png" > </a>
             </div>
-            <div class="link-container">
+           <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                </div><!--END-->
+           <div class="link-container">
+                <a href="./index.html"  style="color: #5e9918;" class="link-btn"> Home </a>
                 <a href="./test.html" class="link-btn"> E.I Test</a>
-                <a href="#" class="link-btn"> Features</a>
+                <a href="./features.html" class="link-btn"> Features</a>
                 <a href="./resources.html" class="link-btn"> Resources</a>
                 <a href="./about.html" class="link-btn"> About</a>
             </div>
              <div class="lgn-btn">
                 <a href="./login.html" id="logb" class="logex"> Login</a>
-                <a href="./about.html" id="logb1" class="logex"> Explore</a>
+                <a href="./resources.html" id="logb1" class="logex"> Explore</a>
             </div>
         </div>
         </nav>
 
-
+        
         <!--CONTENT SECTION-->
         <div class="content-container">
             <div class="welcome-msg">
@@ -50,10 +56,10 @@
                 <a href="./test.html" class="btn-text"> TAKE YOUR TEST  <i style="margin-left: 6px;" class="fas fa-hand-point-right"></i> </a>
          </div>
             <div class="circle-container">
-                <a href="#"> <img id="c1" src="./img/c1.png"> </a>
-                <a href="#">   <img id="c2" src="./img/c2.png"> </a>
-                <a href="#">   <img id="c3" src="./img/c3.png"> </a>
-                <a href="#">   <img id="c4" src="./img/c4.png"> </a>
+                <a href="./test.html"> <img id="c1" src="./img/c1.png"> </a>
+                <a href="./test.html">   <img id="c2" src="./img/c2.png"> </a>
+                <a href="./test.html">   <img id="c3" src="./img/c3.png"> </a>
+                <a href="./test.html">   <img id="c4" src="./img/c4.png"> </a>
             </div>
         </div>
       
@@ -64,7 +70,7 @@
             </div>
             <div class="card-msg">
             <h1 id="headline" draggable="true"> Empower Your Mind with <span style="color: #5e9918;">FeelBright </span></h1>
-            <p draggable="true"> FeelBright is your personal guide to mastering 
+            <p id="emp" draggable="true"> FeelBright is your personal guide to mastering 
                 emotions and enhancing self-awareness.  FeelBright empowers you to grow, connect, and thrive 
                 every single day. Start your journey to a brighter,
                 more emotionally intelligent you.</p>   <br>
@@ -95,6 +101,8 @@
         </div>
     </div>
 </div>
+<!--Back to top-->
+<button id="backToTop" onclick="scrollToTop()">↑</button>
 
 <!--FOOTER--> 
 <footer class="footer">
@@ -115,21 +123,21 @@
             </div>
             <div id="about" class="footer-box">
                 <h1 id="ca">Learn More</h1>
-                <a id="abt" href="#">About Us</a><br><br>
-                <a id="abt" href="#">Explore</a>
-                
+                <a id="abt" href="./about.html">About Us |</a>
+              
+                <a id="abt" href="./resources.html">Explore</a>  
             </div>
             <div class="footer-info">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
          FeelBright
         </p>
-      </div>
+            </div>
     </div>
     </div>    
 </footer>
 
  <!--SCRIPT-->
-<script src="script.js"></script>
+<script src="./script.js"></script>
     </body>
 </html>
